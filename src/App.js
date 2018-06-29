@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import './App.css';
 import Header from './header'
 import Action from './Action'
 import Option from './Option'
 import AddOption from './AddOption'
+import SModal from './modal'
 
 
 class App extends Component {
   state = {
     options: [],
+    selected:undefined
   }
 
   componentDidMount(){
@@ -34,7 +36,7 @@ if (prevstate.options !== this.state.option){
   addF = () => {
     const pick  = Math.floor(Math.random()* this.state.options.length)
     const option = this.state.options[pick]
-    alert(option)
+    this.setState(()=>({selected: option}))
   }
   addO = (option) => {
     
@@ -52,7 +54,9 @@ if (prevstate.options !== this.state.option){
     });
    
  }
-
+okayF = () =>{
+  this.setState(()=>({selected: false}))
+}
   
 
  render(){
@@ -63,6 +67,7 @@ if (prevstate.options !== this.state.option){
         <Action hasOptions = {this.state.options.length > 0} f = {this.addF}  />
         <Option options ={this.state.options} del = {this.removeF} addOC= {this.addOC}/>
         <AddOption addO = {this.addO} options ={this.state.options} />
+        <SModal selected = {this.state.selected} okayF={this.okayF}/>
  
       </div>
 
