@@ -8,10 +8,13 @@ class Option extends Component {
   
      return (
       <div className="wapper div">
-      <button onClick= {this.props.del}> Remove all</button>
-    {this.props.options.length === 0 && <h3>Taxify Your Day</h3>}
-    {this.props.options.map((num)=> <OptionC key={num} optionText= {num} addOC= {this.props.addOC} />)}
-          
+      <div className='Task-header'>
+      <h3> Your Task </h3>
+      <button className='R-button' onClick= {this.props.del}> Remove All</button>
+      </div>
+    {this.props.options.length === 0 && <h3 className='h3-task'>Taxify Your Day</h3>}
+    {this.props.options.map((num,index)=> <OptionC key={num} optionText= {num} addOC= {this.props.addOC} count={index +1}/>)}
+     
       </div>
 
 

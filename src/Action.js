@@ -5,8 +5,8 @@ class Action extends Component {
  render(){
     
   return (
-      <div className="wapper div">
-   <button onClick= {this.props.f} disabled= {!this.props.hasOptions}> what should i do </button>
+      <div >
+   <button className="big-button" onClick= {this.props.f} disabled= {!this.props.hasOptions}> what should i do </button>
  
       </div>
 

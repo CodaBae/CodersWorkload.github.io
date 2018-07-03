@@ -9,9 +9,8 @@ class AddOption extends Component {
         this.props.addO(option)
         e.target.elements.option.value = ''
         }
-        else if(this.props.options.indexOf(option) > -1){
-            alert('you have added this task before')
-        }
+        
+    
         else if(!option){
             alert('input a text')
         }
@@ -23,10 +22,11 @@ class AddOption extends Component {
     
   return (
       <div className="wapper div">
-      <form  onSubmit= {this.onFormSubmit}>
-      <input type= 'text' name='option' />
-    
-      <button >Add Options</button>
+      <form className='addO' onSubmit= {this.onFormSubmit}>
+      <input className='input' type= 'text' name='option' />
+        <div className='bc'>
+      <button className='button'>Add Task</button>
+        </div>
       </form>
       </div>
 

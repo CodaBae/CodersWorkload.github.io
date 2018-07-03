@@ -5,6 +5,7 @@ import Action from './Action'
 import Option from './Option'
 import AddOption from './AddOption'
 import SModal from './modal'
+import './styles/app.css'
 
 
 class App extends Component {
@@ -62,13 +63,16 @@ okayF = () =>{
  render(){
   
   return (
-      <div className="wapper div">
+      <div className="wapper-div">
+      <div className='container'>
         <Header /> 
         <Action hasOptions = {this.state.options.length > 0} f = {this.addF}  />
+        <div className='div-options' >
         <Option options ={this.state.options} del = {this.removeF} addOC= {this.addOC}/>
         <AddOption addO = {this.addO} options ={this.state.options} />
+        </div>
         <SModal selected = {this.state.selected} okayF={this.okayF}/>
- 
+      </div>
       </div>
 
 
